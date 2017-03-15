@@ -87,7 +87,6 @@ class GroupTypeController
      *
      * @return JsonResponse
      *
-     * @AclAncestor("pim_enrich_grouptype_edit")
      */
     public function getAction($identifier)
     {
