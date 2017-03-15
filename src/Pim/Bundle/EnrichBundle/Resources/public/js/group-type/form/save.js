@@ -33,42 +33,48 @@ define(
         return BaseSave.extend({
             updateSuccessMessage: __('pim_enrich.entity.group_type.info.update_successful'),
             updateFailureMessage: __('pim_enrich.entity.group_type.info.update_failed'),
+            notReadyMessageLabel: 'pim_enrich.entity.group_type.info.field_not_ready',
+
+            getFieldLabels: function(fields, catalogLocale) {
+              _.map(fields, function (field) {
+                  return i18n.getLabel(
+                      field.attribute.label,
+                      catalogLocale,
+                      field.attribute.code
+                  );
+              });
+            },
+
+            showFlashMessage: function(message, labels) {
+              messenger.notificationFlashMessage(
+                  'error',
+                  __(
+                      message,
+                      {'fields': labels.join(', ')}
+                  )
+              );
+            },
 
             /**
              * {@inheritdoc}
              */
             save: function () {
-                var groupType = $.extend(true, {}, this.getFormData());
-
-                delete groupType.meta;
+                var entity = $.extend(true, {}, this.getFormData());
+                delete entity.meta;
 
                 var notReadyFields = FieldManager.getNotReadyFields();
 
                 if (0 < notReadyFields.length) {
-                    var fieldLabels = _.map(notReadyFields, function (field) {
-                        return i18n.getLabel(
-                            field.attribute.label,
-                            UserContext.get('catalogLocale'),
-                            field.attribute.code
-                        );
-                    });
-
-                    messenger.notificationFlashMessage(
-                        'error',
-                        __(
-                            'pim_enrich.entity.group_type.info.field_not_ready',
-                            {'fields': fieldLabels.join(', ')}
-                        )
-                    );
-
-                    return;
+                    var catalogLocale = UserContext.get('catalogLocale')
+                    var fieldLabels = this.getFieldLabels(notReadyFields, catalogLocale)
+                    return this.showFlashMessage(this.notReadyMessageLabel, fieldLabels)
                 }
 
                 this.showLoadingMask();
                 this.getRoot().trigger('pim_enrich:form:entity:pre_save');
 
                 return GroupTypeSaver
-                    .save(groupType.code, groupType)
+                    .save(entity.code, entity)
                     .then(function (data) {
                         this.postSave();
                         this.setData(data);
