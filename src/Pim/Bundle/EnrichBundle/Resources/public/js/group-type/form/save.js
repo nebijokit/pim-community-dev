@@ -71,7 +71,6 @@ define(
                     .save(groupType.code, groupType)
                     .then(function (data) {
                         this.postSave();
-
                         this.setData(data);
                         this.getRoot().trigger('pim_enrich:form:entity:post_fetch', data);
                     }.bind(this))
