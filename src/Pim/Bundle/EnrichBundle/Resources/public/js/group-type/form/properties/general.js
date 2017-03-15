@@ -34,7 +34,7 @@ define([
                     model: this.getFormData(),
                     sectionTitle: __('pim_enrich.form.group_type.tab.properties.general'),
                     codeLabel: __('pim_enrich.form.group_type.tab.properties.code'),
-                    __: __
+                    formRequired: __('pim_enrich.form.required')
                 }));
 
                 this.$el.find('select.select2').select2({});

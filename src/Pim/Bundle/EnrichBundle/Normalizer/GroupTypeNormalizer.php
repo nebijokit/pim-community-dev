@@ -9,8 +9,8 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
  * Group type normalizer
  *
- * @author    Filips Alpe <filips@akeneo.com>
- * @copyright 2015 Akeneo SAS (http://www.akeneo.com)
+ * @author    Tamara Robichet <filips@akeneo.com>
+ * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class GroupTypeNormalizer implements NormalizerInterface
