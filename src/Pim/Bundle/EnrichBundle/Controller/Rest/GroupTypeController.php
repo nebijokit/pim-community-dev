@@ -88,6 +88,8 @@ class GroupTypeController
     }
 
     /**
+     * Get action
+     * 
      * @param string $identifier
      *
      * @return JsonResponse
@@ -104,6 +106,7 @@ class GroupTypeController
     }
 
     /**
+     *
      * @param Request $request
      *
      * @return JsonResponse

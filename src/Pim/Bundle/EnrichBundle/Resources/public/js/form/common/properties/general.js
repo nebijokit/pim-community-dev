@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * Module used to display the generals properties of an group type
+ * Module used to display the generals properties of an entity type
  *
- * @author    Tamara Robichet <tamara.robichet@akeneo.com>
+ * @author    Alexandr Jeliuc <alex@jeliuc.com>
  * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
