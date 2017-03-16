@@ -32,6 +32,9 @@ define(
     ) {
         return BaseSave.extend({
 
+            /**
+             * Sets message labels for updates
+             */
             configure: function () {
                 this.updateSuccessMessage = __(this.config.updateSuccessMessage);
                 this.updateFailureMessage = __(this.config.updateFailureMessage);
@@ -39,8 +42,15 @@ define(
                 return BaseSave.prototype.configure.apply(this, arguments);
             },
 
+            /**
+             * Given an array of fields, return the translation for each in a map
+             *
+             * @param  {Array} fields         An array of field objects
+             * @param  {String} catalogLocale The locale
+             * @return {Array}                An array of labels
+             */
             getFieldLabels: function (fields, catalogLocale) {
-                _.map(fields, function (field) {
+                return _.map(fields, function (field) {
                     return i18n.getLabel(
                         field.attribute.label,
                         catalogLocale,
@@ -49,6 +59,12 @@ define(
                 });
             },
 
+            /**
+             * Shows an error message for the given message text and labels
+             *
+             * @param  {String} message The given error message
+             * @param  {Array} labels   An array of field names
+             */
             showFlashMessage: function (message, labels) {
                 var flash = __(message, { 'fields': labels.join(', ') });
                 messenger.notificationFlashMessage('error', flash);

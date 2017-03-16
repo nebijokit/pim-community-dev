@@ -26,6 +26,11 @@ define([
                 return Routing.generate(this.url, { code: code });
             },
 
+            /**
+             * Sets the url
+             *
+             * @param {Sringt} url Route url
+             */
             setUrl: function (url) {
                 this.url = url;
                 return this;
