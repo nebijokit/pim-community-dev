@@ -27,8 +27,8 @@ define([
             },
 
             setUrl: function (url) {
-                this.url = url
-                return this
+                this.url = url;
+                return this;
             }
         });
     }

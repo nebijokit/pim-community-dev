@@ -33,9 +33,9 @@ define(
         return BaseSave.extend({
 
             configure: function() {
-                this.updateSuccessMessage = __(this.config.updateSuccessMessage)
-                this.updateFailureMessage = __(this.config.updateFailureMessage)
-                this.notReadyMessage = __(this.config.notReadyMessage)
+                this.updateSuccessMessage = __(this.config.updateSuccessMessage);
+                this.updateFailureMessage = __(this.config.updateFailureMessage);
+                this.notReadyMessage = __(this.config.notReadyMessage);
                 return BaseSave.prototype.configure.apply(this, arguments);
             },
 
@@ -50,7 +50,7 @@ define(
             },
 
             showFlashMessage: function(message, labels) {
-                var flash = __( message, { 'fields': labels.join(', ') } )
+                var flash = __( message, { 'fields': labels.join(', ') } );
                 messenger.notificationFlashMessage('error', flash);
             },
 
@@ -64,9 +64,9 @@ define(
                 var notReadyFields = FieldManager.getNotReadyFields();
 
                 if (0 < notReadyFields.length) {
-                    var catalogLocale = UserContext.get('catalogLocale')
-                    var fieldLabels = this.getFieldLabels(notReadyFields, catalogLocale)
-                    return this.showFlashMessage(this.notReadyMessage, fieldLabels)
+                    var catalogLocale = UserContext.get('catalogLocale');
+                    var fieldLabels = this.getFieldLabels(notReadyFields, catalogLocale);
+                    return this.showFlashMessage(this.notReadyMessage, fieldLabels);
                 }
 
                 this.showLoadingMask();
