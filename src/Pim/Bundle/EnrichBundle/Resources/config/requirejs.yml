@@ -245,7 +245,7 @@ config:
         # Saver
         pim/saver/base:                pimenrich/js/saver/base-saver
         pim/saver/association-type:    pimenrich/js/saver/association-type-saver
-        pim/saver/group-type:          pimenrich/js/saver/group-type-saver
+        pim/saver/entity-saver:        pimenrich/js/saver/entity-saver
         pim/saver/channel:             pimenrich/js/saver/channel
         pim/saver/family:              pimenrich/js/saver/family
         pim/saver/product:             pimenrich/js/saver/product-saver

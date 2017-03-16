@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Save extension for group type
+ * Save extension for simple entity types
  *
  * @author    Tamara Robichet <tamara.robichet@akeneo.com>
  * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
@@ -14,7 +14,7 @@ define(
         'oro/translator',
         'pim/form/common/save',
         'oro/messenger',
-        'pim/saver/group-type',
+        'pim/saver/entity-saver',
         'pim/field-manager',
         'pim/i18n',
         'pim/user-context'
@@ -25,12 +25,13 @@ define(
         __,
         BaseSave,
         messenger,
-        GroupTypeSaver,
+        EntitySaver,
         FieldManager,
         i18n,
         UserContext
     ) {
         return BaseSave.extend({
+
             configure: function() {
                 this.updateSuccessMessage = __(this.config.updateSuccessMessage)
                 this.updateFailureMessage = __(this.config.updateFailureMessage)
@@ -39,23 +40,18 @@ define(
             },
 
             getFieldLabels: function(fields, catalogLocale) {
-              _.map(fields, function (field) {
-                  return i18n.getLabel(
-                      field.attribute.label,
-                      catalogLocale,
-                      field.attribute.code
-                  );
-              });
+                _.map(fields, function (field) {
+                    return i18n.getLabel(
+                        field.attribute.label,
+                        catalogLocale,
+                        field.attribute.code
+                    );
+                });
             },
 
             showFlashMessage: function(message, labels) {
-              messenger.notificationFlashMessage(
-                  'error',
-                  __(
-                      message,
-                      {'fields': labels.join(', ')}
-                  )
-              );
+                var flash = __( message, { 'fields': labels.join(', ') } )
+                messenger.notificationFlashMessage('error', flash);
             },
 
             /**
@@ -76,7 +72,8 @@ define(
                 this.showLoadingMask();
                 this.getRoot().trigger('pim_enrich:form:entity:pre_save');
 
-                return GroupTypeSaver
+                return EntitySaver
+                    .setUrl(this.config.url)
                     .save(entity.code, entity)
                     .then(function (data) {
                         this.postSave();
