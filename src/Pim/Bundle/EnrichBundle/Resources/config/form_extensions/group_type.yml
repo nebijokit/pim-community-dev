@@ -53,6 +53,11 @@ extensions:
         parent: pim-group-type-edit-form
         targetZone: buttons
         position: 0
+        config:
+            updateSuccessMessage: pim_enrich.entity.group_type.info.update_successful
+            updateFailureMessage: pim_enrich.entity.group_type.info.update_failed
+            notReadyMessage: pim_enrich.entity.group_type.info.field_not_ready
+            url: pim_enrich_grouptype_rest_post
 
     pim-group-type-edit-form-state:
         module: pim/form/common/state

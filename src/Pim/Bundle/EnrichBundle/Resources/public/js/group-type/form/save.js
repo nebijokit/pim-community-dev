@@ -31,9 +31,12 @@ define(
         UserContext
     ) {
         return BaseSave.extend({
-            updateSuccessMessage: __('pim_enrich.entity.group_type.info.update_successful'),
-            updateFailureMessage: __('pim_enrich.entity.group_type.info.update_failed'),
-            notReadyMessageLabel: 'pim_enrich.entity.group_type.info.field_not_ready',
+            configure: function() {
+                this.updateSuccessMessage = __(this.config.updateSuccessMessage)
+                this.updateFailureMessage = __(this.config.updateFailureMessage)
+                this.notReadyMessage = __(this.config.notReadyMessage)
+                return BaseSave.prototype.configure.apply(this, arguments);
+            },
 
             getFieldLabels: function(fields, catalogLocale) {
               _.map(fields, function (field) {
@@ -67,7 +70,7 @@ define(
                 if (0 < notReadyFields.length) {
                     var catalogLocale = UserContext.get('catalogLocale')
                     var fieldLabels = this.getFieldLabels(notReadyFields, catalogLocale)
-                    return this.showFlashMessage(this.notReadyMessageLabel, fieldLabels)
+                    return this.showFlashMessage(this.notReadyMessage, fieldLabels)
                 }
 
                 this.showLoadingMask();
