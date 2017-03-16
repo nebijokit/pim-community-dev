@@ -6,6 +6,7 @@ use Akeneo\Test\Integration\Configuration;
 use Akeneo\Test\Integration\ConnectionCloser;
 use Akeneo\Test\Integration\DatabaseSchemaHandler;
 use Akeneo\Test\Integration\FixturesLoader;
+use Akeneo\Test\Integration\TestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -53,6 +54,8 @@ abstract class ApiTestCase extends WebTestCase
      */
     protected function setUp()
     {
+        date_default_timezone_set(TestCase::DEFAULT_TIMEZONE);
+
         static::bootKernel();
 
         $configuration = $this->getConfiguration();

@@ -11,6 +11,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
  */
 abstract class TestCase extends KernelTestCase
 {
+    const DEFAULT_TIMEZONE = 'Europe/Paris';
+
     /** @var int Count of executed tests inside the same test class */
     protected static $count = 0;
 
@@ -32,7 +34,7 @@ abstract class TestCase extends KernelTestCase
      */
     protected function setUp()
     {
-        date_default_timezone_set('Europe/Paris');
+        date_default_timezone_set(static::DEFAULT_TIMEZONE);
 
         static::bootKernel(['debug' => false]);
 
