@@ -89,7 +89,7 @@ class GroupTypeController
 
     /**
      * Get action
-     * 
+     *
      * @param string $identifier
      *
      * @return JsonResponse
