@@ -262,11 +262,9 @@ config:
 
         # Association type
         pim/association-type-edit-form/delete:                 pimenrich/js/association-type/form/delete
-        pim/association-type-edit-form/properties/general:     pimenrich/js/association-type/form/properties/general
 
         # Group type
         pim/group-type-edit-form/delete:                 pimenrich/js/group-type/form/delete
-        pim/group-type-edit-form/properties/general:     pimenrich/js/group-type/form/properties/general
 
         # Channel
         pim/channel-edit-form/delete:                           pimenrich/js/channel/form/delete
@@ -416,6 +414,7 @@ config:
         pim/common/tab/history:                pimenrich/js/form/common/tab/history
         pim/common/tab/properties:             pimenrich/js/form/common/tab/properties
         pim/common/properties/translation:     pimenrich/js/form/common/properties/translation
+        pim/common/properties/general:         pimenrich/js/form/common/properties/general
         pim/common/add-attribute:              pimenrich/js/form/common/attributes/add-attribute
         pim/common/add-attribute-line:         pimenrich/js/form/common/attributes/add-attribute-line
         pim/common/add-attribute-footer:       pimenrich/js/form/common/attributes/add-attribute-footer
@@ -482,6 +481,7 @@ config:
         pim/template/form/attribute-group/add/line:               pimenrich/templates/form/attribute-group/add/line.html
         pim/template/form/attribute-group/add/footer:             pimenrich/templates/form/attribute-group/add/footer.html
         pim/template/form/properties/translation:                 pimenrich/templates/form/properties/translation.html
+        pim/template/form/properties/general:                     pimenrich/templates/form/properties/general.html
         pim/template/form/properties/input:                       pimenrich/templates/form/properties/input.html
         pim/template/form/back-to-grid:                           pimenrich/templates/form/back-to-grid.html
         pim/template/form/form-tabs:                              pimenrich/templates/form/form-tabs.html
@@ -497,7 +497,6 @@ config:
         pim/template/form/redirect:                               pimenrich/templates/form/redirect.html
 
         pim/template/association-type/tab/properties/general:     pimenrich/templates/association-type/tab/properties/general.html
-        pim/template/group-type/tab/properties/general:           pimenrich/templates/group-type/tab/properties/general.html
 
         pim/template/channel/tab/properties/general:                pimenrich/templates/channel/tab/properties/general.html
         pim/template/channel/tab/properties/general/currencies:     pimenrich/templates/channel/tab/properties/general/currencies.html

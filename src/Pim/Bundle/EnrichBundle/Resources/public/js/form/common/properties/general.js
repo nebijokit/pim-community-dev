@@ -12,7 +12,7 @@ define([
         'oro/translator',
         'pim/form',
         'pim/fetcher-registry',
-        'text!pim/template/group-type/tab/properties/general',
+        'text!pim/template/form/properties/general',
         'jquery.select2'
     ],
     function (
@@ -30,11 +30,14 @@ define([
              * {@inheritdoc}
              */
             render: function () {
+                var config = this.options.config
+
                 this.$el.html(this.template({
                     model: this.getFormData(),
-                    sectionTitle: __('pim_enrich.form.group_type.tab.properties.general'),
-                    codeLabel: __('pim_enrich.form.group_type.tab.properties.code'),
-                    formRequired: __('pim_enrich.form.required')
+                    sectionTitle: __(config.sectionTitle),
+                    codeLabel: __(config.codeLabel),
+                    formRequired: __(config.formRequired),
+                    inputField: config.inputField,
                 }));
 
                 this.$el.find('select.select2').select2({});

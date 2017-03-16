@@ -76,10 +76,15 @@ extensions:
             label: pim_enrich.form.group_type.tab.properties.title
 
     pim-group-type-edit-form-properties-general:
-        module: pim/group-type-edit-form/properties/general
+        module: pim/common/properties/general
         parent: pim-group-type-edit-form-properties
         targetZone: accordion
         position: 100
+        config:
+          sectionTitle: pim_enrich.form.group_type.tab.properties.general
+          codeLabel: pim_enrich.form.group_type.tab.properties.code
+          formRequired: pim_enrich.form.required
+          inputField: pim_enrich_group_type_form_code
 
     pim-group-type-edit-form-properties-translation:
         module: pim/common/properties/translation
