@@ -48,7 +48,12 @@ class GroupTypeController
 
     /**
      * @param GroupTypeRepositoryInterface $groupTypeRepo
-     * @param NormalizerInterface                $normalizer
+     * @param NormalizerInterface          $normalizer
+     * @param RemoverInterface             $remover
+     * @param ObjectUpdaterInterface       $updater
+     * @param SaverInterface               $saver
+     * @param ValidatorInterface           $validator
+     * @param UserContext                  $userContext
      */
     public function __construct(
         GroupTypeRepositoryInterface $groupTypeRepo,
@@ -87,6 +92,7 @@ class GroupTypeController
      *
      * @return JsonResponse
      *
+     * @AclAncestor("pim_enrich_grouptype_get")
      */
     public function getAction($identifier)
     {
@@ -120,7 +126,7 @@ class GroupTypeController
                 'standard'
             );
 
-            return new JsonResponse($errors, 400);
+            return new JsonResponse($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $this->saver->save($groupType);
@@ -161,7 +167,7 @@ class GroupTypeController
      *
      * @return GroupTypeInterface
      */
-    private function getGroupTypeOr404($code)
+    protected function getGroupTypeOr404($code)
     {
         $groupType = $this->groupTypeRepo->findOneBy(
             ['code' => $code]

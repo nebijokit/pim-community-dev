@@ -73,7 +73,7 @@ extensions:
         targetZone: container
         position: 100
         config:
-            label: 'pim_enrich.form.group_type.tab.properties.title'
+            label: pim_enrich.form.group_type.tab.properties.title
 
     pim-group-type-edit-form-properties-general:
         module: pim/group-type-edit-form/properties/general

@@ -293,7 +293,6 @@ services:
             - '@pim_user.context.user'
 
     pim_enrich.controller.rest.group_type:
-        scope: request
         class: '%pim_enrich.controller.rest.group_type.class%'
         arguments:
             - '@pim_catalog.repository.group_type'
