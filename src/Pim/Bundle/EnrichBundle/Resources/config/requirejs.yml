@@ -55,8 +55,6 @@ config:
             url: pim_enrich_job_instance_rest_export_delete
         pim/saver/association-type:
             url: pim_enrich_associationtype_rest_post
-        pim/saver/group-type:
-            url: pim_enrich_grouptype_rest_post
         pim/saver/channel:
             postUrl: pim_enrich_channel_rest_post
             putUrl: pim_enrich_channel_rest_put
@@ -272,7 +270,6 @@ config:
 
         # Group type
         pim/group-type-edit-form/delete:                 pimenrich/js/group-type/form/delete
-        pim/group-type-edit-form/save:                   pimenrich/js/group-type/form/save
         pim/group-type-edit-form/properties/general:     pimenrich/js/group-type/form/properties/general
 
         # Channel
@@ -439,6 +436,7 @@ config:
         pim/form/common/delete:                              pimenrich/js/form/common/delete
         pim/form/common/back-to-grid:                        pimenrich/js/form/common/back-to-grid
         pim/form/common/form-tabs:                           pimenrich/js/form/common/form-tabs
+        pim/form/common/save-form:                           pimenrich/js/form/common/save-form
         pim/form/common/save-buttons:                        pimenrich/js/form/common/save-buttons
         pim/form/common/state:                               pimenrich/js/form/common/state
         pim/form/common/meta/created:                        pimenrich/js/form/common/meta/created

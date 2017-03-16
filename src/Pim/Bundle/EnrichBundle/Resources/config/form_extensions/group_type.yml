@@ -49,7 +49,7 @@ extensions:
         position: 100
 
     pim-group-type-edit-form-save:
-        module: pim/group-type-edit-form/save
+        module: pim/form/common/save-form
         parent: pim-group-type-edit-form
         targetZone: buttons
         position: 0
