@@ -182,7 +182,7 @@ define(
 
                                 options.callback({
                                     results: choices,
-                                    more: choices.length >= this.resultsPerPage,
+                                    more: choices.length === this.getResultsPerPage(),
                                     context: {
                                         page: page + 1
                                     }
@@ -425,7 +425,7 @@ define(
                     search: term,
                     alias: this.gridAlias,
                     options: {
-                        limit: this.resultsPerPage,
+                        limit: this.getResultsPerPage(),
                         page: page
                     }
                 });
@@ -458,6 +458,10 @@ define(
                 var url = window.location.hash;
                 Backbone.history.fragment = new Date().getTime();
                 Backbone.history.navigate(url, true);
+            },
+
+            getResultsPerPage: function () {
+                return this.resultsPerPage;
             }
         });
     }
