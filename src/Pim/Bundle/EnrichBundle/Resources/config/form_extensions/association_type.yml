@@ -49,10 +49,15 @@ extensions:
         position: 100
 
     pim-association-type-edit-form-save:
-        module: pim/association-type-edit-form/save
+        module: pim/form/common/save-form
         parent: pim-association-type-edit-form
         targetZone: buttons
         position: 0
+        config:
+            updateSuccessMessage: pim_enrich.entity.association_type.info.update_successful
+            updateFailureMessage: pim_enrich.entity.association_type.info.update_failed
+            notReadyMessage: pim_enrich.entity.association_type.info.field_not_ready
+            url: pim_enrich_associationtype_rest_post
 
     pim-association-type-edit-form-state:
         module: pim/form/common/state
