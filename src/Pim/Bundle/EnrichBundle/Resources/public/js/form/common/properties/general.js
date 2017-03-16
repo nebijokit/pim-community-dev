@@ -30,14 +30,14 @@ define([
              * {@inheritdoc}
              */
             render: function () {
-                var config = this.options.config
+                var config = this.options.config;
 
                 this.$el.html(this.template({
                     model: this.getFormData(),
                     sectionTitle: __(config.sectionTitle),
                     codeLabel: __(config.codeLabel),
                     formRequired: __(config.formRequired),
-                    inputField: config.inputField,
+                    inputField: config.inputField
                 }));
 
                 this.$el.find('select.select2').select2({});

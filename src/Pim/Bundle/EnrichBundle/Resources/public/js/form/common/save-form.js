@@ -32,14 +32,14 @@ define(
     ) {
         return BaseSave.extend({
 
-            configure: function() {
+            configure: function () {
                 this.updateSuccessMessage = __(this.config.updateSuccessMessage);
                 this.updateFailureMessage = __(this.config.updateFailureMessage);
                 this.notReadyMessage = __(this.config.notReadyMessage);
                 return BaseSave.prototype.configure.apply(this, arguments);
             },
 
-            getFieldLabels: function(fields, catalogLocale) {
+            getFieldLabels: function (fields, catalogLocale) {
                 _.map(fields, function (field) {
                     return i18n.getLabel(
                         field.attribute.label,
@@ -49,8 +49,8 @@ define(
                 });
             },
 
-            showFlashMessage: function(message, labels) {
-                var flash = __( message, { 'fields': labels.join(', ') } );
+            showFlashMessage: function (message, labels) {
+                var flash = __(message, { 'fields': labels.join(', ') });
                 messenger.notificationFlashMessage('error', flash);
             },
 
